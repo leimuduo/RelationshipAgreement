@@ -12,35 +12,17 @@ This is a web api application built with .net 5.
 > Please refer to [here](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five)
 
 ### Design
+> Auth design is following this article: [Click this magic link~](https://jasonwatmore.com/post/2021/05/25/net-5-simple-api-for-authentication-registration-and-user-management)
+> TODO: User context migration steps.
+
 Product is the core entity. 
 ```json
-{
-  // ID is uuid, PK of the entity
-  "Id": "01234567-89ab-cdef-0123-456789abcdef",
-  // Name and Description for now there's no constraint, could be empty.
-  "Name": "Product name",
-  "Description": "Product description",
-  // Price and Delivery Price is stored in decimal. no limitation
-  "Price": 123.45,
-  "DeliveryPrice": 12.34,
-  // Status is flag for indicating whether the product is active/inactive. 
-  // When deleve, it only set the status to inactive for future re-use.
-  "Status": 0
-}
+
 ```
 
 ProductOption is the option of each product
 ```json
-{
-  // Id should be uuid and is the PK
-  "Id": "01234567-89ab-cdef-0123-456789abcdef",
-  // Product Id can not be null. Product to Option is 1-to-N relationship.
-  // Product could be no option attaches but one option must link to a product.
-  "ProductId": "01234567-89ab-cdef-0123-456789abcdef",
-  // Name and Description for now there's no constraint, could be empty.
-  "Name": "Product name",
-  "Description": "Product description"
-}
+
 ```
 
 API document please refer to below section or swagger document.

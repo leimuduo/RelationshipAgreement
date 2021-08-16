@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
 using RelationshipApi.Helpers;
+using RelationshipApi.Helpers.Auth;
 using RelationshipApi.IoC;
 using RelationshipApi.Models.Entities;
 
@@ -17,6 +18,8 @@ namespace RelationshipApi
 {
     public class Startup
     {
+        private IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             var temp = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -27,11 +30,11 @@ namespace RelationshipApi
                 .Build();
         }
 
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             // Turn on cache
             services.AddMemoryCache();
 
@@ -45,6 +48,9 @@ namespace RelationshipApi
             services.AddDbContext<ProductsContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
+            // Register "AppSettings" secrete into global configuration.
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
             // Logging
             services.AddLogging(log =>
             {
@@ -55,22 +61,40 @@ namespace RelationshipApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "RelationshipApi", Version = "v1"});
-            });
-
-            // allow CORS
-            services.AddCors(o => o.AddPolicy("AllowOrigin",
-                builder =>
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-                }));
+                    Title = "RelationshipApi",
+                    Version = "v1"
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please insert JWT with Bearer into field",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // TODO: migrate any database changes on startup (includes initial db creation)
+
             // if (env.IsDevelopment())
             // {
             app.UseDeveloperExceptionPage();
@@ -78,8 +102,15 @@ namespace RelationshipApi
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RelationshipApi v1"));
             // }
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
+
             // Register global api error handling
             app.UseMiddleware<GlobalErrorHandlerMiddleware>();
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseRouting();
