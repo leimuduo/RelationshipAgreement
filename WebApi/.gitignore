@@ -1,0 +1,19 @@
+
+ProductApi/.DS_Store
+.DS_Store
+
+# ignore build output
+bin/
+obj/
+/packages/
+published/
+
+# ignore local log
+ProductApi/c:\temp\internal-nlog-AspNetCore.txt
+
+# ignore IDE config
+.idea/
+.vs/
+/_ReSharper.Caches/
+riderModule.iml
+ProductApi/c:\temp\internal-nlog-AspNetCore.txt
