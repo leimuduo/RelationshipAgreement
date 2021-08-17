@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "1eae4268-a20a-4e87-b184-50d801bacf45",
+		"name": "ProductsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"30894cae-dfe8-4f92-8063-e70030eb6e8f\",\n\t\"name\": \"Headphone\",\n\t\"description\": \"JBL noise cancelling headphone\",\n\t\"price\": 69.99,\n\t\"deliveryPrice\": 10.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product Option",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"30894cae-dfe8-4f92-8063-e70220eb6e8f\",\n\t\"name\": \"Color\",\n    \"description\": \"Red\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/054c164d-b591-4e38-9bf3-f773794b2d50/options/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"054c164d-b591-4e38-9bf3-f773794b2d50",
+						"options",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products?name=Headphone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Headphone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products/054c164d-b591-4e38-9bf3-f773794b2d50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"054c164d-b591-4e38-9bf3-f773794b2d50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Options by Product Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products/054c164d-b591-4e38-9bf3-f773794b2d50/options",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"054c164d-b591-4e38-9bf3-f773794b2d50",
+						"options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Options by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products/054c164d-b591-4e38-9bf3-f773794b2d50/options/8833cd8a-9ab0-4f18-8f58-a3d5301f7d30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"054c164d-b591-4e38-9bf3-f773794b2d50",
+						"options",
+						"8833cd8a-9ab0-4f18-8f58-a3d5301f7d30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 699.99,\r\n    \"deliveryPrice\": 10.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44335/api/products/a2228364-c9b5-4cb4-8c9f-3c4be4d0938a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44335",
+					"path": [
+						"api",
+						"products",
+						"a2228364-c9b5-4cb4-8c9f-3c4be4d0938a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product Option",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Color\",\r\n    \"description\": \"Blue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44335/api/products/a2228364-c9b5-4cb4-8c9f-3c4be4d0938a/options/87cf45e1-aae2-4a60-b944-29d713c349ae",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44335",
+					"path": [
+						"api",
+						"products",
+						"a2228364-c9b5-4cb4-8c9f-3c4be4d0938a",
+						"options",
+						"87cf45e1-aae2-4a60-b944-29d713c349ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products/054c164d-b591-4e38-9bf3-f773794b2d50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"054c164d-b591-4e38-9bf3-f773794b2d50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product Option",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44335/api/products/a2228364-c9b5-4cb4-8c9f-3c4be4d0938a/options/87cf45e1-aae2-4a60-b944-29d713c349ae",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44335",
+					"path": [
+						"api",
+						"products",
+						"a2228364-c9b5-4cb4-8c9f-3c4be4d0938a",
+						"options",
+						"87cf45e1-aae2-4a60-b944-29d713c349ae"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

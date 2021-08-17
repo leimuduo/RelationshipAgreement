@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7a0f1dee_002D6d30_002D4a32_002D8036_002De766c85558dc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;ProductApi.Integration.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="\Users\yangsiyin\Desktop\ProductApi\ProductApi.Integration.Tests" Presentation="&amp;lt;ProductApi.Integration.Tests&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="\Users\yangsiyin\Desktop\ProductApi\ProductApi.Tests" Presentation="&amp;lt;ProductApi.Tests&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=043da367_002D73d5_002D4cad_002D8839_002D07d0542aadae_0023ProductApi_002EIntegration_002ETests/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=ec7da6d0_002D66b5_002D4f17_002D9243_002Dc5352de970e5_0023ProductApi_002ETests/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=appsettings/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

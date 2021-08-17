@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationshipApi", "RelationshipApi\RelationshipApi.csproj", "{AD5F3703-16E0-4B08-997E-82EFDD8AD5ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApi.Tests", "ProductApi.Tests\ProductApi.Tests.csproj", "{EC7DA6D0-66B5-4F17-9243-C5352DE970E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApi.Integration.Tests", "ProductApi.Integration.Tests\ProductApi.Integration.Tests.csproj", "{043DA367-73D5-4CAD-8839-07D0542AADAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD5F3703-16E0-4B08-997E-82EFDD8AD5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5F3703-16E0-4B08-997E-82EFDD8AD5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5F3703-16E0-4B08-997E-82EFDD8AD5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5F3703-16E0-4B08-997E-82EFDD8AD5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7DA6D0-66B5-4F17-9243-C5352DE970E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7DA6D0-66B5-4F17-9243-C5352DE970E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7DA6D0-66B5-4F17-9243-C5352DE970E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7DA6D0-66B5-4F17-9243-C5352DE970E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043DA367-73D5-4CAD-8839-07D0542AADAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043DA367-73D5-4CAD-8839-07D0542AADAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043DA367-73D5-4CAD-8839-07D0542AADAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043DA367-73D5-4CAD-8839-07D0542AADAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
