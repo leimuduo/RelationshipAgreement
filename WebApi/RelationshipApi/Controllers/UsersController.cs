@@ -13,9 +13,9 @@ namespace RelationshipApi.Controllers
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
+        private readonly AppSettings _appSettings;
         private readonly IUserService _userService;
         private IMapper _mapper;
-        private readonly AppSettings _appSettings;
 
         public UsersController(
             IUserService userService,
@@ -40,7 +40,7 @@ namespace RelationshipApi.Controllers
         public IActionResult Register(RegisterRequest model)
         {
             _userService.Register(model);
-            return Ok(new { message = "Registration successful" });
+            return Ok(new {message = "Registration successful"});
         }
 
         [HttpGet]
@@ -61,14 +61,14 @@ namespace RelationshipApi.Controllers
         public IActionResult Update(int id, UpdateRequest model)
         {
             _userService.Update(id, model);
-            return Ok(new { message = "User updated successfully" });
+            return Ok(new {message = "User updated successfully"});
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);
-            return Ok(new { message = "User deleted successfully" });
+            return Ok(new {message = "User deleted successfully"});
         }
     }
 }

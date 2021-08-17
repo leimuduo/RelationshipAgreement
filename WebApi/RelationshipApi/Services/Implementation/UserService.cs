@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using BCryptNet = BCrypt.Net.BCrypt;
 using System.Linq;
 using AutoMapper;
 using RelationshipApi.Helpers.Auth;
@@ -7,17 +6,18 @@ using RelationshipApi.Helpers.CustomiseExceptions;
 using RelationshipApi.Models.Dtos.Users;
 using RelationshipApi.Models.Entities;
 using RelationshipApi.Services.Interfaces;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace RelationshipApi.Services.Implementation
 {
     public class UserService : IUserService
     {
-        private readonly ProductsContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IJwtUtils _jwtUtils;
         private readonly IMapper _mapper;
 
         public UserService(
-            ProductsContext context,
+            ApplicationDbContext context,
             IJwtUtils jwtUtils,
             IMapper mapper)
         {

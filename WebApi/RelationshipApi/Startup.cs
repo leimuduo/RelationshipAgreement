@@ -18,8 +18,6 @@ namespace RelationshipApi
 {
     public class Startup
     {
-        private IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             var temp = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -29,6 +27,8 @@ namespace RelationshipApi
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNET_ENV")}.json", true, true)
                 .Build();
         }
+
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -45,7 +45,7 @@ namespace RelationshipApi
             services.AddAutoMapper(Assembly.GetAssembly(typeof(Startup)));
 
             // DB setup
-            services.AddDbContext<ProductsContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             // Register "AppSettings" secrete into global configuration.
