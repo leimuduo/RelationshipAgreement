@@ -27,7 +27,7 @@ namespace RelationshipApi.Models.Entities
 
             modelBuilder.Entity<User>()
                 .HasOne<Member>(m => m.Member)
-                .WithOne(m => m.User)
+                .WithOne(m => m.UserDto)
                 .HasForeignKey<Member>(m => m.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 

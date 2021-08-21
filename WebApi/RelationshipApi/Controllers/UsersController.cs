@@ -1,9 +1,12 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using RelationshipApi.Helpers.Auth;
 using RelationshipApi.Models.Dtos.Users;
+using RelationshipApi.Models.Entities;
 using RelationshipApi.Services.Interfaces;
 
 namespace RelationshipApi.Controllers
@@ -44,28 +47,28 @@ namespace RelationshipApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<IEnumerable<User>> GetAll()
         {
             var users = _userService.GetAll();
             return Ok(users);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public ActionResult<User> GetById(Guid id)
         {
             var user = _userService.GetById(id);
             return Ok(user);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateRequest model)
+        public ActionResult<User> Update(Guid id, UpdateRequest model)
         {
             _userService.Update(id, model);
             return Ok(new {message = "User updated successfully"});
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             _userService.Delete(id);
             return Ok(new {message = "User deleted successfully"});

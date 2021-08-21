@@ -1,10 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace RelationshipApi.Models.Entities
 {
     public class User
     {
+        [Key]
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,7 +14,7 @@ namespace RelationshipApi.Models.Entities
 
         public string TimeZone { get; set; }
 
-        [JsonIgnore] public string PasswordHash { get; set; }
+        public string PasswordHash { get; set; }
         public virtual Member Member { get; set; }
     }
 }
