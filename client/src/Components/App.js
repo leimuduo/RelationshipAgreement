@@ -4,19 +4,19 @@ import {
 } from "react-router-dom";
 import { UserRoutes } from './routes/UserRoutes'
 import { VisitorRoutes } from './routes/VisitorRoutes'
+import 'antd/dist/antd.css'
 
 export const App = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   return (
     <Router>
       <div className="App">
-        Relationship agreement
+        {
+          isLoggedIn ?
+            <UserRoutes /> :
+            <VisitorRoutes />
+        }
       </div>
-      {
-        isLoggedIn ?
-          <UserRoutes /> :
-          <VisitorRoutes />
-      }
     </Router>
   );
 }
