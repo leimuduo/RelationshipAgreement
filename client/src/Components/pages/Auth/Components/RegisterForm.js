@@ -12,7 +12,7 @@ export const RegisterForm = () => {
 
   return (
     <Form
-      className="register-form"
+      className="ra-register-form"
       initialValues={{ remember: false }}
       onFinish={onFinish}
     >
