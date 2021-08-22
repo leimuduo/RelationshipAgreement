@@ -12,7 +12,7 @@ export const LoginForm = () => {
 
   return (
     <Form
-      className="login-form"
+      className="ra-login-form"
       initialValues={{ remember: false }}
       onFinish={onFinish}
     >
