@@ -10,7 +10,7 @@ using RelationshipApi.Services.Interfaces;
 
 namespace RelationshipApi.Services.Implementation
 {
-    public class ProductOptionService : IProductOptionService
+    public class ProductOptionService 
     {
         // private readonly ILogger<ProductOptionService> _logger;
         // private readonly IProductOptionRepository _productOptionRepo;

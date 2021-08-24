@@ -18,9 +18,8 @@ namespace RelationshipApi.IoC
 
             // Services
             services.AddScoped<ICacheService, CacheService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IProductOptionService, ProductOptionService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IFamilyService, FamilyService>();
 
             // Repos
             services.AddTransient<IProductRepository, ProductRepository>();

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -19,13 +20,20 @@ namespace RelationshipApi.Helpers.Auth
 
         public async Task Invoke(HttpContext context, IUserService userService, IJwtUtils jwtUtils)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-            var userId = jwtUtils.ValidateToken(token);
-            if (userId != null)
-                // attach user to context on successful jwt validation
-                context.Items["User"] = userService.GetById(userId.Value);
+            try
+            {
+                var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+                var userId = jwtUtils.ValidateToken(token);
+                if (userId != null)
+                    // attach user to context on successful jwt validation
+                    context.Items["User"] = userService.GetById(userId.Value);
 
-            await _next(context);
+                await _next(context);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 }

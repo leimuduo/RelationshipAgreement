@@ -11,7 +11,7 @@ using RelationshipApi.Services.Interfaces;
 
 namespace RelationshipApi.Controllers
 {
-    [Authorize]
+    [Helpers.Auth.Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase

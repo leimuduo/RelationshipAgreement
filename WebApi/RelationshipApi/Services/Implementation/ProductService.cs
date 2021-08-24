@@ -10,7 +10,7 @@ using RelationshipApi.Services.Interfaces;
 
 namespace RelationshipApi.Services.Implementation
 {
-    public class ProductService : IProductService
+    public class ProductService
     {
         // private readonly ICacheService _cache;
         // private readonly ILogger<ProductService> _logger;

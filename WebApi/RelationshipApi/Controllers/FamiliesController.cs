@@ -30,7 +30,9 @@ namespace RelationshipApi.Controllers
             {
                 return BadRequest($"User can not be found.");
             }
+            
             var family = await _familyService.GetFamilyByUserId(userId);
+            
             if (family == null) 
                 return NotFound("Family not found");
         

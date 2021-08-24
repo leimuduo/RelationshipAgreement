@@ -33,10 +33,11 @@ namespace RelationshipApi.Services.Implementation
 
             // validate
             if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
+                // todo change name.
                 throw new ProductApiValidationException("Username or password is incorrect");
 
             // authentication successful
-            var response = _mapper.Map<AuthenticateResponse>(user);
+            var response = _mapper.Map<User, AuthenticateResponse>(user);
             response.JwtToken = _jwtUtils.GenerateToken(user);
             return response;
         }
