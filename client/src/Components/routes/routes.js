@@ -1,4 +1,5 @@
 export const routes = {
+  root: '/',
   user: {
     dashboard: '/dashboard',
     family: {
@@ -6,6 +7,8 @@ export const routes = {
     }
   },
   visitor: {
-    login: '/login'
+    landing: '/landing',
+    login: '/login',
+    register: '/register'
   }
 }
