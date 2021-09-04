@@ -43,6 +43,9 @@
 
     <ItemGroup>
         <None Update="nlog.config" CopyToOutputDirectory="Always" />
+        <None Update="App_Data\Relationship.db">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
