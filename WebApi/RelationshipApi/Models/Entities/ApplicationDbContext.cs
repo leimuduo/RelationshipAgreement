@@ -26,29 +26,29 @@ namespace RelationshipApi.Models.Entities
                 .HasKey(f => f.Id);
 
             modelBuilder.Entity<User>()
-                .HasOne<Member>(m => m.Member)
-                .WithOne(m => m.User)
+                .HasOne(m => m.Member)
+                .WithOne(m => m.UserDto)
                 .HasForeignKey<Member>(m => m.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Member>()
-                .HasOne<Family>(f => f.Family)
+                .HasOne(f => f.Family)
                 .WithMany(f => f.Members)
                 .HasConstraintName("FK_Member_Family")
                 .OnDelete(DeleteBehavior.NoAction);
-            
+
             modelBuilder.Entity<Token>()
                 .HasOne(t => t.Member)
                 .WithMany(m => m.Tokens)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Invitation>()
-                .HasOne<Member>(i => i.Invitor)
+                .HasOne(i => i.Invitor)
                 .WithMany(m => m.Invitations)
                 .HasConstraintName("FK_Invitation_Member")
                 .OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Invitation>()
-                .HasOne<Family>(i => i.Family)
+                .HasOne(i => i.Family)
                 .WithMany(f => f.Invitations)
                 .HasConstraintName("FK_Invitation_Family")
                 .OnDelete(DeleteBehavior.NoAction);

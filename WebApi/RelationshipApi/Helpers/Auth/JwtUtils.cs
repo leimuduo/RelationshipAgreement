@@ -12,7 +12,7 @@ namespace RelationshipApi.Helpers.Auth
     public interface IJwtUtils
     {
         public string GenerateToken(User user);
-        public int? ValidateToken(string token);
+        public Guid? ValidateToken(string token);
     }
 
     public class JwtUtils : IJwtUtils
@@ -24,14 +24,14 @@ namespace RelationshipApi.Helpers.Auth
             _appSettings = appSettings.Value;
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User userDto)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] {new Claim("id", user.Id.ToString())}),
+                Subject = new ClaimsIdentity(new[] {new Claim("id", userDto.Id.ToString())}),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)
@@ -40,7 +40,7 @@ namespace RelationshipApi.Helpers.Auth
             return tokenHandler.WriteToken(token);
         }
 
-        public int? ValidateToken(string token)
+        public Guid? ValidateToken(string token)
         {
             if (token == null)
                 return null;
@@ -60,7 +60,7 @@ namespace RelationshipApi.Helpers.Auth
                 }, out var validatedToken);
 
                 var jwtToken = (JwtSecurityToken) validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
                 // return user id from JWT token if validation successful
                 return userId;

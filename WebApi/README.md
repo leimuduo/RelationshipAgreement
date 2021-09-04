@@ -85,8 +85,8 @@ Docker file has supplied. please modify relevant setup to fit in your container 
 ```
 # Docker cmd
 # Please make sure you are in the solution folder, not in project folder.
-docker build -t product-api .
-docker run -it --rm -p 2333:80 --name product_api product-api
+docker build -t relationship-api .
+ docker run -it --rm -p 2333:80 --name relationship_api relationship-api
 ```
 
 

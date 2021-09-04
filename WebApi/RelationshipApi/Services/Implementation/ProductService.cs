@@ -1,16 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using RelationshipApi.Helpers.CustomiseExceptions;
-using RelationshipApi.Models.Dtos;
-using RelationshipApi.Repositories;
-using RelationshipApi.Repositories.Interfaces;
-using RelationshipApi.Services.Interfaces;
-
 namespace RelationshipApi.Services.Implementation
 {
-    public class ProductService : IProductService
+    public class ProductService
     {
         // private readonly ICacheService _cache;
         // private readonly ILogger<ProductService> _logger;

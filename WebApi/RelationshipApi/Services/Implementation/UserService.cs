@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using RelationshipApi.Helpers.Auth;
@@ -32,10 +33,11 @@ namespace RelationshipApi.Services.Implementation
 
             // validate
             if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
+                // todo change name.
                 throw new ProductApiValidationException("Username or password is incorrect");
 
             // authentication successful
-            var response = _mapper.Map<AuthenticateResponse>(user);
+            var response = _mapper.Map<User, AuthenticateResponse>(user);
             response.JwtToken = _jwtUtils.GenerateToken(user);
             return response;
         }
@@ -45,7 +47,7 @@ namespace RelationshipApi.Services.Implementation
             return _context.Users;
         }
 
-        public User GetById(int id)
+        public User GetById(Guid id)
         {
             return GetUser(id);
         }
@@ -67,7 +69,7 @@ namespace RelationshipApi.Services.Implementation
             _context.SaveChanges();
         }
 
-        public void Update(int id, UpdateRequest model)
+        public void Update(Guid id, UpdateRequest model)
         {
             var user = GetUser(id);
 
@@ -85,7 +87,7 @@ namespace RelationshipApi.Services.Implementation
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var user = GetUser(id);
             _context.Users.Remove(user);
@@ -94,7 +96,7 @@ namespace RelationshipApi.Services.Implementation
 
         // helper methods
 
-        private User GetUser(int id)
+        private User GetUser(Guid id)
         {
             var user = _context.Users.Find(id);
             if (user == null) throw new KeyNotFoundException("User not found");
