@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using RelationshipApi.Models.Dtos;
 using RelationshipApi.Services.Interfaces;
 
-
 namespace RelationshipApi.Controllers
 {
     [Route("api/tokens")]

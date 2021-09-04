@@ -1,9 +1,6 @@
 using System;
 using System.IO;
 using System.Reflection;
-using RelationshipApi.IoC;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
 using RelationshipApi.Helpers;
 using RelationshipApi.Helpers.Auth;
+using RelationshipApi.IoC;
 using RelationshipApi.Models.Entities;
 
 namespace RelationshipApi

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using RelationshipApi.Models.Dtos;
-
 namespace RelationshipApi.Repositories.Interfaces
 {
     public interface IProductOptionRepository

@@ -8,7 +8,14 @@ namespace RelationshipApi.Models.Entities
         [Key] public Guid Id { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
+
+        public Guid FamilyId { get; set; }
+        public virtual Family Family { get; set; }
+
         public Guid MemberId { get; set; }
         public virtual Member Member { get; set; }
+
+        public Guid? IssuerId { get; set; }
+        public virtual Member Issuer { get; set; }
     }
 }

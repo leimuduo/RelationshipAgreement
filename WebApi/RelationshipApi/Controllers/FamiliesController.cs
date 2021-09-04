@@ -6,7 +6,7 @@ using RelationshipApi.Models.Dtos;
 using RelationshipApi.Services.Interfaces;
 
 namespace RelationshipApi.Controllers
-{    
+{
     [Route("api/families")]
     [ApiController]
     public class FamiliesController : ControllerBase
@@ -27,15 +27,14 @@ namespace RelationshipApi.Controllers
         {
             if (!GeneralGuidCheck(userId)) return BadRequest($"invalid user Id {userId}");
             if (_userService.GetById(userId) == null)
-            {
-                return BadRequest($"User can not be found.");
-            }
-            
+                return BadRequest("User can not be found.");
+
+
             var family = await _familyService.GetFamilyByUserId(userId);
-            
-            if (family == null) 
+
+            if (family == null)
                 return NotFound("Family not found");
-        
+
             return Ok(family);
         }
 

@@ -13,7 +13,5 @@ namespace RelationshipApi.Controllers
         {
             _tokenService = tokenService;
         }
-        
-        
     }
 }

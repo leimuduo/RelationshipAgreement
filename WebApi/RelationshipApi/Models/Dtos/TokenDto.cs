@@ -8,5 +8,6 @@ namespace RelationshipApi.Models.Dtos
         public string Name { get; set; }
         public int Quantity { get; set; }
         public Guid MemberId { get; set; }
+        public string MemberDisplayName { get; set; }
     }
 }

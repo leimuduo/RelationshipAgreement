@@ -22,12 +22,12 @@ namespace RelationshipApi.Helpers.Mapper
                     {
                         // ignore null & empty string properties
                         if (prop == null) return false;
-                        if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
+                        if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string) prop)) return false;
 
                         return true;
                     }
                 ));
-            
+
             CreateMap<Product, ProductDto>()
                 .ForMember(target => target.ProductOptions, map =>
                     map.MapFrom(src => src.ProductOptions));

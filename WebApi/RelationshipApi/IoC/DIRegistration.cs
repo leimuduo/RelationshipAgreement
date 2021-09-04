@@ -1,7 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RelationshipApi.Helpers.Auth;
-using RelationshipApi.Repositories;
 using RelationshipApi.Repositories.Implementation;
 using RelationshipApi.Repositories.Interfaces;
 using RelationshipApi.Services.Implementation;
@@ -24,6 +23,7 @@ namespace RelationshipApi.IoC
             // Repos
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductOptionRepository, ProductOptionRepository>();
+            services.AddTransient<IFamilyRepository, FamilyRepository>();
         }
     }
 }

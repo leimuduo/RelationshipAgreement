@@ -6,6 +6,6 @@ namespace RelationshipApi.Services.Interfaces
 {
     public interface IFamilyService
     {
-        Task<FamilyDto> GetFamilyByUserId(Guid userId);
+        Task<FamilyDto> GetFamilyByUserId(Guid userId, bool includeToken = false);
     }
 }

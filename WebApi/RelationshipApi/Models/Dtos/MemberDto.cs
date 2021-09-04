@@ -1,5 +1,4 @@
 ﻿using System;
-using RelationshipApi.Models.Entities;
 
 namespace RelationshipApi.Models.Dtos
 {
@@ -7,5 +6,7 @@ namespace RelationshipApi.Models.Dtos
     {
         public Guid UserId { get; set; }
         public string UserName { get; set; }
+        public string DisplayName { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
