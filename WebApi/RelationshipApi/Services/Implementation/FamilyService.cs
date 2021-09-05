@@ -39,7 +39,24 @@ namespace RelationshipApi.Services.Implementation
                 }
             };
 
-            if (includeToken) family.Tokens = new List<TokenDto>();
+            if (includeToken) family.Tokens = new List<TokenDto>
+            {
+                new()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "洗衣服",
+                    Quantity = 12,
+                    MemberId = userId,
+                    MemberDisplayName = "贾铭梓"
+                },                new()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "看电视",
+                    Quantity = 3,
+                    MemberId = userId,
+                    MemberDisplayName = "贾铭梓"
+                },
+            };
 
             return family;
         }

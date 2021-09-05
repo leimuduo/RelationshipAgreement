@@ -23,14 +23,14 @@ namespace RelationshipApi.Controllers
         [HttpGet("{userId:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<FamilyDto>> GetFamilyByUser(Guid userId)
+        public async Task<ActionResult<FamilyDto>> GetFamilyByUser(Guid userId, bool includeToken)
         {
             if (!GeneralGuidCheck(userId)) return BadRequest($"invalid user Id {userId}");
-            if (_userService.GetById(userId) == null)
-                return BadRequest("User can not be found.");
+            // if (_userService.GetById(userId) == null)
+            //     return BadRequest("User can not be found.");
 
 
-            var family = await _familyService.GetFamilyByUserId(userId);
+            var family = await _familyService.GetFamilyByUserId(userId, includeToken);
 
             if (family == null)
                 return NotFound("Family not found");
