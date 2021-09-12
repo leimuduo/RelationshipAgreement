@@ -16,3 +16,25 @@
 2021-09-05 13:30:02.2080 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=69, FilePath=/Users/siyin.yang/Codes/Personal/RelationshipAgreement/WebApi/RelationshipApi/bin/Debug/net5.0/NLog.config
 2021-09-05 13:30:02.2324 Info Configuration initialized.
 2021-09-05 13:30:02.2346 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.11.13229. Product version: 4.7.11+33ed3a9f86277651e93ddf39cda64a046a06778b. GlobalAssemblyCache: False
+2021-09-12 14:20:18.7288 Info Message Template Auto Format enabled
+2021-09-12 14:20:18.7689 Info Loading assembly: NLog.Web.AspNetCore
+2021-09-12 14:20:18.8146 Info Adding target FileTarget(Name=allfile)
+2021-09-12 14:20:18.8167 Info Adding target FileTarget(Name=ownFile-web)
+2021-09-12 14:20:18.8178 Warn Skipping unrecognized property 'tolower=true` for ${level} (NLog.LayoutRenderers.LevelLayoutRenderer)
+2021-09-12 14:20:18.8200 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2021-09-12 14:20:18.9529 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=69, FilePath=/Users/siyin.yang/Codes/Personal/RelationshipAgreement/WebApi/RelationshipApi/bin/Debug/net5.0/NLog.config
+2021-09-12 14:20:18.9710 Info Configuration initialized.
+2021-09-12 14:20:18.9721 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.11.13229. Product version: 4.7.11+33ed3a9f86277651e93ddf39cda64a046a06778b. GlobalAssemblyCache: False
+2021-09-12 14:20:20.1323 Info AppDomain Shutting down. Logger closing...
+2021-09-12 14:20:20.1439 Info Logger has been shut down.
+2021-09-12 14:20:38.7027 Info Message Template Auto Format enabled
+2021-09-12 14:20:38.7458 Info Loading assembly: NLog.Web.AspNetCore
+2021-09-12 14:20:38.7955 Info Adding target FileTarget(Name=allfile)
+2021-09-12 14:20:38.7978 Info Adding target FileTarget(Name=ownFile-web)
+2021-09-12 14:20:38.7989 Warn Skipping unrecognized property 'tolower=true` for ${level} (NLog.LayoutRenderers.LevelLayoutRenderer)
+2021-09-12 14:20:38.8012 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2021-09-12 14:20:38.9251 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=69, FilePath=/Users/siyin.yang/Codes/Personal/RelationshipAgreement/WebApi/RelationshipApi/bin/Debug/net5.0/NLog.config
+2021-09-12 14:20:38.9434 Info Configuration initialized.
+2021-09-12 14:20:38.9446 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.11.13229. Product version: 4.7.11+33ed3a9f86277651e93ddf39cda64a046a06778b. GlobalAssemblyCache: False
+2021-09-12 14:20:40.2786 Info AppDomain Shutting down. Logger closing...
+2021-09-12 14:20:40.2904 Info Logger has been shut down.

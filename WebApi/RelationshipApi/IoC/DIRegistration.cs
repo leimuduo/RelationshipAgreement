@@ -19,11 +19,15 @@ namespace RelationshipApi.IoC
             services.AddScoped<ICacheService, CacheService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IFamilyService, FamilyService>();
+            services.AddScoped<ITokenService, TokenService>();
+            // services.AddScoped<IMemberService, MemberService>();
 
             // Repos
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductOptionRepository, ProductOptionRepository>();
             services.AddTransient<IFamilyRepository, FamilyRepository>();
+            services.AddTransient<ITokenRepository, TokenRepository>();
+            services.AddTransient<IMemberRepository, MemberRepository>();
         }
     }
 }

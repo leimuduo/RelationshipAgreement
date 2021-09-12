@@ -6,8 +6,13 @@ namespace RelationshipApi.Models.Entities
 {
     public class Member
     {
-        [Key] public Guid UserId { get; set; }
+        [Key] 
+        public Guid UserId { get; set; }
+        
         public User UserDto { get; set; }
+        public string UserName { get; set; }
+        public string DisplayName { get; set; }
+        public string ImageUrl { get; set; }
 
         public Guid? FamilyId { get; set; }
         public virtual Family Family { get; set; }

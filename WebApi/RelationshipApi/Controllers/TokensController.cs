@@ -25,7 +25,7 @@ namespace RelationshipApi.Controllers
         {
             if (!GeneralGuidCheck(userId)) return BadRequest($"invalid user Id {userId}");
 
-            var family = await _tokenService.GetTokenByUserId(userId);
+            var family = await _tokenService.GetTokenByMemberId(userId);
             if (family == null)
                 return NotFound("Family not found");
 

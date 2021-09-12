@@ -20,11 +20,15 @@ namespace RelationshipApi.Helpers.Mapper
                 .ForAllMembers(x => x.Condition(
                     (src, dest, prop) =>
                     {
-                        // ignore null & empty string properties
-                        if (prop == null) return false;
-                        if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string) prop)) return false;
-
-                        return true;
+                        switch (prop)
+                        {
+                            // ignore null & empty string properties
+                            case null:
+                            case string arg3 when string.IsNullOrEmpty(arg3):
+                                return false;
+                            default:
+                                return true;
+                        }
                     }
                 ));
 
@@ -35,6 +39,12 @@ namespace RelationshipApi.Helpers.Mapper
                 .ForMember(target => target.ProductOptions, map =>
                     map.MapFrom(src => src.ProductOptions));
             CreateMap<ProductOption, ProductOptionDto>().ReverseMap();
+
+            CreateMap<Member, MemberDto>();
+            CreateMap<MemberDto, Member>();
+            CreateMap<Token, TokenDto>();
+            CreateMap<TokenDto, Token>();
+            
         }
     }
 }

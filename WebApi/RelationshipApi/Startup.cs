@@ -45,7 +45,7 @@ namespace RelationshipApi
             services.AddAutoMapper(Assembly.GetAssembly(typeof(Startup)));
 
             // DB setup
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContextPool<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             // Register "AppSettings" secrete into global configuration.

@@ -68,7 +68,16 @@ namespace RelationshipApi.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid?>("FamilyId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
@@ -87,7 +96,13 @@ namespace RelationshipApi.Migrations
                     b.Property<Guid>("FamilyId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("IssuerDisplayName")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid?>("IssuerId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MemberDisplayName")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("MemberId")

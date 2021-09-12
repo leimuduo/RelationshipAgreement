@@ -6,6 +6,10 @@ namespace RelationshipApi.Services.Interfaces
 {
     public interface ITokenService
     {
-        Task<UserTokenDto> GetTokenByUserId(Guid userId);
+        Task<UserTokenDto> GetTokenByMemberId(Guid memberId);
+        Task<TokenDto> GetTokenById(Guid id);
+        Task<TokenDto> UpdateToken(TokenDto token);
+        Task<TokenDto> CreateToken(TokenDto token);
+        Task<bool> DeleteToken(Guid id);
     }
 }

@@ -9,8 +9,8 @@ using RelationshipApi.Models.Entities;
 namespace RelationshipApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210817103400_AddTokenTable")]
-    partial class AddTokenTable
+    [Migration("20210912042020_InitiateDb")]
+    partial class InitiateDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,7 +70,16 @@ namespace RelationshipApi.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid?>("FamilyId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
@@ -86,6 +95,18 @@ namespace RelationshipApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("FamilyId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IssuerDisplayName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("IssuerId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MemberDisplayName")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid>("MemberId")
                         .HasColumnType("TEXT");
 
@@ -97,6 +118,10 @@ namespace RelationshipApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FamilyId");
+
+                    b.HasIndex("IssuerId");
+
                     b.HasIndex("MemberId");
 
                     b.ToTable("Tokens");
@@ -106,6 +131,9 @@ namespace RelationshipApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
@@ -157,7 +185,7 @@ namespace RelationshipApi.Migrations
                         .HasConstraintName("FK_Member_Family")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("RelationshipApi.Models.Entities.User", "User")
+                    b.HasOne("RelationshipApi.Models.Entities.User", "UserDto")
                         .WithOne("Member")
                         .HasForeignKey("RelationshipApi.Models.Entities.Member", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -165,16 +193,30 @@ namespace RelationshipApi.Migrations
 
                     b.Navigation("Family");
 
-                    b.Navigation("User");
+                    b.Navigation("UserDto");
                 });
 
             modelBuilder.Entity("RelationshipApi.Models.Entities.Token", b =>
                 {
+                    b.HasOne("RelationshipApi.Models.Entities.Family", "Family")
+                        .WithMany()
+                        .HasForeignKey("FamilyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RelationshipApi.Models.Entities.Member", "Issuer")
+                        .WithMany()
+                        .HasForeignKey("IssuerId");
+
                     b.HasOne("RelationshipApi.Models.Entities.Member", "Member")
                         .WithMany("Tokens")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Family");
+
+                    b.Navigation("Issuer");
 
                     b.Navigation("Member");
                 });
